@@ -14,6 +14,14 @@ namespace ResourceManager.Services
         public PermissionDataService(IDesignTimeDbContextFactory<ResourceManagerDBContext> contextFactory) : base(contextFactory)
         {
         }
+        public override async Task<IList<Permission>> GetAll()
+        {
+            using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))
+            {
+                IList<Permission> entities = await db.Permissions.OrderBy(x => x.Name).ToListAsync();
+                return entities;
+            }
+        }
         public async Task<IList<string>> GetPermissionForRoles(IList<string> roles)
         {
             using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))

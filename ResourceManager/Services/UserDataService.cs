@@ -13,7 +13,14 @@ namespace ResourceManager.Services
         public UserDataService(IDesignTimeDbContextFactory<ResourceManagerDBContext> contextFactory) : base(contextFactory)
         {
         }
-
+        public override async Task<IList<User>> GetAll()
+        {
+            using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))
+            {
+                IList<User> entities = await db.Users.OrderBy(x => x.Name).ToListAsync();
+                return entities;
+            }
+        }
         public async Task<int> UpdateRoles(User user, IList<Role> roles)
         {
             using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))

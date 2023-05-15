@@ -21,13 +21,13 @@ namespace ResourceManager.Services
             using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))
             {
                 IList<Tag> entities = await db.Tags
-                    .Include(x=>x.PasswordTags)
-                    .Include(x=>x.RepositoryTags)
-                    .Include(x=>x.ActivityTags)
-                    .Include(x=>x.ArticleTags)
-                    .Include(x=>x.BookTags)
+                    .Include(x => x.PasswordTags)
+                    .Include(x => x.RepositoryTags)
+                    .Include(x => x.ActivityTags)
+                    .Include(x => x.ArticleTags)
+                    .Include(x => x.BookTags)
                     .AsNoTracking()
-                    .OrderBy(x=>x.Name)
+                    .OrderBy(x => x.Name)
                     .ToListAsync();
                 return entities;
             }
@@ -45,6 +45,7 @@ namespace ResourceManager.Services
                     .Include(x => x.NoteTags)
                     .AsNoTracking()
                     .Where(predicate)
+                    .OrderBy(x => x.Name)
                     .ToListAsync();
                 return entities;
             }
@@ -56,7 +57,7 @@ namespace ResourceManager.Services
                 var results = await (from t in db.Tags
                                      from ur in db.PasswordTags.Where(pt => pt.TagID == t.ID && pt.PasswordID == id)
                                      select t)
-                                     .OrderBy(x=>x.Name)
+                                     .OrderBy(x => x.Name)
                                      .ToListAsync();
                 return results;
             }
