@@ -167,6 +167,12 @@ namespace ResourceManager
             if (TrayIcon.IsVisible)
             {
                 e.Cancel = true;
+                var mainVM = mainWindow.DataContext as MainViewModel;
+                if (mainVM != null)
+                {
+                    AuthManager.User.Identity = new AnonymousIdentity();
+                    mainVM.RefreshUI();
+                }
                 UiExecution.Execute(MainWindow.Hide);
             }
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetCore.Security;
+using ResourceManager.ViewModels;
+using System;
 using System.Windows;
 
 namespace ResourceManager.Views

@@ -12,7 +12,7 @@ namespace ResourceManager.ViewModels
         public PageViewModel()
         {
             SelectedPageCommand = new RelayCommand(() => mainVM.CurrentPage = this);
-            GoHomeCommand = new RelayCommand(() => mainVM.CurrentPage = mainVM.MainPage);
+            GoHomeCommand = new RelayCommand(mainVM.GoHome);
         }
 
         public string PageTitle

@@ -88,7 +88,7 @@ namespace ResourceManager
         {
             var result = WindowManager.ShowMessageBox("Close application?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result== MessageBoxResult.Yes)
-                Application.Current.Shutdown();
+                WindowManager.ShutdownApplication();
         
         }
 

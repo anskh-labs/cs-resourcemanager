@@ -31,7 +31,7 @@ namespace ResourceManager.ViewModels
         private void Logout()
         {
             AuthManager.User.Identity = new AnonymousIdentity();
-            mainVM.CurrentPage = mainVM.LoginPage;
+            mainVM.RefreshUI();
         }
 
         public string? LoginUser => string.Format(" Logout [{0}]", AuthManager.User.Identity.Name);

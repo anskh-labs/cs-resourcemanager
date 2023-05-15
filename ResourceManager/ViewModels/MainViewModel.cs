@@ -57,6 +57,12 @@ namespace ResourceManager.ViewModels
                 CurrentPopup = null;
             }
         }
+
+        internal void GoHome()
+        {
+            CurrentPage = MainPage;
+        }
+
         public bool IsPopupVisible
         {
             get => GetProperty<bool>();
@@ -74,7 +80,7 @@ namespace ResourceManager.ViewModels
             get => GetProperty<ViewModelBase?>();
             set => SetProperty(value);
         }
-        public ViewModelBase LoginPage => App.ServiceProvider.GetRequiredService<LoginPageViewModel>();
-        public ViewModelBase MainPage => App.ServiceProvider.GetRequiredService<MainPageViewModel>();
+        private ViewModelBase LoginPage => App.ServiceProvider.GetRequiredService<LoginPageViewModel>();
+        private ViewModelBase MainPage => App.ServiceProvider.GetRequiredService<MainPageViewModel>();
     }
 }
