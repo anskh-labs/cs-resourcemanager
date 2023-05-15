@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="NetCore.Mvvm.Controls.PopupMessageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NetCore.Mvvm.Controls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid Background="White" MinWidth="200" MaxWidth="600" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="40">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                    <GradientStop Color="#404040" Offset="0.0" />
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Caption}" Foreground="GhostWhite" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <Button Grid.Column="1" Cursor="Hand" Command="{Binding CloseCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,5">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="Transparent">
+                            <Rectangle Stroke="White" StrokeThickness="3" Width="24" Height="24" Fill="Red" Opacity="0.7" />
+                            <Path Data="M0,0 L1,1 M0,1 L1,0" Margin="5" Stretch="Uniform" Stroke="White" Width="12" Height="12" StrokeThickness="3" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Width="32" Height="32">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Margin" Value="0 0 10 0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Image}" Value="{x:Static local:PopupImage.None}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Image}" Value="{x:Static local:PopupImage.Warning}">
+                                <Setter Property="Source">
+                                    <Setter.Value>
+                                        <DrawingImage>
+                                            <DrawingImage.Drawing>
+                                                <GeometryDrawing Brush="Orange"
+                                 Geometry="M13.950004,24.5L13.950004,28.299988 17.950004,28.299988 17.950004,24.5z M13.950004,10.399963L13.950004,21.699951 17.950004,21.699951 17.950004,10.399963z M15.950004,0C16.349998,0,16.750007,0.19995117,16.950004,0.69995117L31.750011,30.099976C31.949993,30.5 31.949993,31 31.750011,31.399963 31.549999,31.799988 31.150005,32 30.750011,32L1.1499981,32C0.75000406,32 0.34999478,31.799988 0.14999761,31.399963 -0.049999204,31 -0.049999204,30.5 0.14999761,30.099976L14.950004,0.69995117C15.150001,0.19995117,15.549995,0,15.950004,0z" />
+                                            </DrawingImage.Drawing>
+                                        </DrawingImage>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Image}" Value="{x:Static local:PopupImage.Information}">
+                                <Setter Property="Source">
+                                    <Setter.Value>
+                                        <DrawingImage>
+                                            <DrawingImage.Drawing>
+                                                <GeometryDrawing Brush="Blue"
+                                 Geometry="M16.200012,11.899994C15.5,12.300003 14.799988,12.600006 14.299988,12.800003 13.700012,13 13,13.100006 12.200012,13.199997L12.200012,14.5 14.799988,14.5 14.799988,23.399994C14.799988,24.199997 14.799988,24.699997 14.700012,25 14.600037,25.199997 14.400024,25.399994 14.200012,25.5 14,25.600006 13.5,25.699997 12.799988,25.699997L12.200012,25.699997 12.200012,27 20,27 20,25.699997 19.299988,25.699997C18.700012,25.699997 18.299988,25.699997 18.100037,25.600006 17.900024,25.5 17.700012,25.300003 17.600037,25.100006 17.5,24.899994 17.400024,24.600006 17.400024,24.100006L17.400024,11.899994z M16,5.1000061C15.5,5.1000061 15.100037,5.3000031 14.799988,5.6000061 14.5,5.8999939 14.299988,6.3999939 14.299988,6.8000031 14.299988,7.3000031 14.5,7.6999969 14.799988,8 15.100037,8.3000031 15.600037,8.5 16,8.5 16.5,8.5 16.900024,8.3000031 17.200012,8 17.5,7.6999969 17.700012,7.1999969 17.700012,6.8000031 17.700012,6.3000031 17.5,5.8999939 17.200012,5.6000061 16.900024,5.3000031 16.5,5.1000061 16,5.1000061z M16,0C24.799988,0 32,7.1999969 32,16 32,24.800003 24.799988,32 16,32 7.2000122,32 0,24.800003 0,16 0,7.1999969 7.2000122,0 16,0z" />
+                                            </DrawingImage.Drawing>
+                                        </DrawingImage>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Image}" Value="{x:Static local:PopupImage.Error}">
+                                <Setter Property="Source">
+                                    <Setter.Value>
+                                        <DrawingImage>
+                                            <DrawingImage.Drawing>
+                                                <GeometryDrawing Brush="Red"
+                                 Geometry="M5.1163335,0C6.4203386,-9.1704351E-08,7.7243743,0.4009941,8.7273803,1.4039678L16.150495,8.1248624 23.27359,1.704927C25.27963,-0.10003502 28.489671,-0.10003502 30.495712,1.704927 32.502731,3.5109269 32.502731,6.4198744 30.495712,8.2258736L23.373596,14.745721 30.094705,20.864637C32.100749,22.670576 32.100749,25.579523 30.094705,27.385523 28.088663,29.190485 24.878623,29.190485 22.871604,27.385523L16.150495,21.26563 9.1293941,27.585531C7.122345,29.39147 3.9123056,29.39147 1.9062939,27.585531 -0.099748187,25.780569 -0.099748187,22.870584 1.9062939,21.065622L8.9283719,14.745721 1.5052868,7.9248535C-0.50176227,6.1188537 -0.50176227,3.2099065 1.5052868,1.4039678 2.5082927,0.50200556 3.8122978,-9.1704351E-08 5.1163335,0z" />
+                                            </DrawingImage.Drawing>
+                                        </DrawingImage>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Image}" Value="{x:Static local:PopupImage.Question}">
+                                <Setter Property="Source">
+                                    <Setter.Value>
+                                        <DrawingImage>
+                                            <DrawingImage.Drawing>
+                                                <GeometryDrawing Brush="Green"
+                                 Geometry="M6.1720122,26.640015L12.506012,26.640015 12.506012,31.999023 6.1720122,31.999023z M6.169998,22.900024L6.1737445,22.900024 6.1720122,23.064941z M10.068994,0C13.318025,0 15.754005,0.81201172 17.703046,2.4359741 19.490037,4.0609741 20.463,6.335022 20.463,9.0949707 20.463,10.882019 19.976001,12.669006 18.839034,14.130005 17.701032,15.591003 16.402993,17.052979 14.777989,18.028015 13.967013,18.677002 13.316011,19.328003 12.992036,20.139038 12.667023,20.78894 12.505035,21.764038 12.505035,22.900024L6.1737445,22.900024 6.1758092,22.703424C6.2137826,20.916021 6.5366138,19.440285 7.1460131,18.680054 7.7950018,17.705994 8.9320286,16.567993 10.71902,15.268982 11.693022,14.45697 12.506012,13.481995 13.155,12.507996 13.805026,11.533997 14.129001,10.395996 14.129001,9.2589722 14.129001,7.9589844 13.805026,6.822998 13.155,6.1740112 12.506012,5.3619995 11.531033,5.0360107 10.232019,5.0360107 9.0949925,5.0360107 8.2829788,5.3610229 7.4720028,6.0100098 6.6599892,6.6589966 6.3339995,7.6339722 6.3339995,8.7709961L0,8.7709961 0,8.6079712C1.7478305E-07,5.8480225 0.81097621,3.7360229 2.7600165,2.2739868 4.7099722,0.81201172 6.9829882,0 10.068994,0z" />
+                                            </DrawingImage.Drawing>
+                                        </DrawingImage>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Stretch">
+                <TextBlock TextWrapping="Wrap" Margin="10 0" FontSize="14" Text="{Binding Message}" VerticalAlignment="Top" />
+            </StackPanel>
+        </Grid>
+        <Border VerticalAlignment="Top" Grid.Row="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0 0.5 0 0">
+            <WrapPanel Margin="15" HorizontalAlignment="Center">
+                <Button 
+                Width="65" Height="27" Margin="0 0 10 0" Content="OK" FontSize="14" Cursor="Hand" Command="{Binding OKCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.OK}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.YesNo}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Width="65" Height="27" Margin="0 0 10 0" Content="Yes" FontSize="14" Cursor="Hand" Command="{Binding YesCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.YesNo}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.OK}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Width="65" Height="27" Content="No" FontSize="14" Cursor="Hand" Command="{Binding NoCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.YesNo}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Button}" Value="{x:Static local:PopupButton.OK}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

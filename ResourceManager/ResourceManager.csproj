@@ -1,0 +1,205 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+	  <Configuration>
+		  
+	  </Configuration>
+	  <ApplicationIcon>ResourceManager.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Assets\Activity.png" />
+    <None Remove="Resources\Assets\Add.png" />
+    <None Remove="Resources\Assets\Articles.png" />
+    <None Remove="Resources\Assets\AssignRoles.png" />
+    <None Remove="Resources\Assets\Cancel.png" />
+    <None Remove="Resources\Assets\Delete.png" />
+    <None Remove="Resources\Assets\EBooks.png" />
+    <None Remove="Resources\Assets\Edit.png" />
+    <None Remove="Resources\Assets\Filter.png" />
+    <None Remove="Resources\Assets\First.png" />
+    <None Remove="Resources\Assets\Home.png" />
+    <None Remove="Resources\Assets\Images\bg.png" />
+    <None Remove="Resources\Assets\Images\Browse.png" />
+    <None Remove="Resources\Assets\Images\Database.png" />
+    <None Remove="Resources\Assets\Images\Explore.png" />
+    <None Remove="Resources\Assets\Images\Hide.png" />
+    <None Remove="Resources\Assets\Images\Note.png" />
+    <None Remove="Resources\Assets\Images\no_cover.png" />
+    <None Remove="Resources\Assets\Images\Open.png" />
+    <None Remove="Resources\Assets\Images\Options.png" />
+    <None Remove="Resources\Assets\Images\progressbar.gif" />
+    <None Remove="Resources\Assets\Images\Remove.png" />
+    <None Remove="Resources\Assets\Images\Show.png" />
+    <None Remove="Resources\Assets\Images\Submit.png" />
+    <None Remove="Resources\Assets\Images\Tag.png" />
+    <None Remove="Resources\Assets\Images\Tools.png" />
+    <None Remove="Resources\Assets\Last.png" />
+    <None Remove="Resources\Assets\Left.png" />
+    <None Remove="Resources\Assets\Next.png" />
+    <None Remove="Resources\Assets\No.png" />
+    <None Remove="Resources\Assets\Ok.png" />
+    <None Remove="Resources\Assets\Passwords.png" />
+    <None Remove="Resources\Assets\Permissions.png" />
+    <None Remove="Resources\Assets\Previous.png" />
+    <None Remove="Resources\Assets\Refresh.png" />
+    <None Remove="Resources\Assets\Repository.png" />
+    <None Remove="Resources\Assets\ResourceManager.ico" />
+    <None Remove="Resources\Assets\ResourceManager.png" />
+    <None Remove="Resources\Assets\Right.png" />
+    <None Remove="Resources\Assets\Roles.png" />
+    <None Remove="Resources\Assets\Save.png" />
+    <None Remove="Resources\Assets\UserLogin.png" />
+    <None Remove="Resources\Assets\Users.png" />
+    <None Remove="Resources\Assets\Yes.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ResourceManager.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetCore.Controls\NetCore.Controls.csproj" />
+    <ProjectReference Include="..\NetCore.Cryptography\NetCore.Cryptography.csproj" />
+    <ProjectReference Include="..\NetCore.DatabaseToolkit\NetCore.DatabaseToolkit.csproj" />
+    <ProjectReference Include="..\NetCore.Mvvm\NetCore.Mvvm.csproj" />
+    <ProjectReference Include="..\NetCore.Security\NetCore.Security.csproj" />
+    <ProjectReference Include="..\NetCore.Validators\NetCore.Validators.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Assets\Images\Activity.png" />
+    <Resource Include="Resources\Assets\Images\Add.png" />
+    <Resource Include="Resources\Assets\Images\Articles.png" />
+    <Resource Include="Resources\Assets\Images\AssignRoles.png" />
+    <Resource Include="Resources\Assets\Images\bg.png" />
+    <Resource Include="Resources\Assets\Images\Browse.png" />
+    <Resource Include="Resources\Assets\Images\Cancel.png" />
+    <Resource Include="Resources\Assets\Images\Database.png" />
+    <Resource Include="Resources\Assets\Images\Delete.png" />
+    <Resource Include="Resources\Assets\Images\EBooks.png" />
+    <Resource Include="Resources\Assets\Images\Edit.png" />
+    <Resource Include="Resources\Assets\Images\Explore.png" />
+    <Resource Include="Resources\Assets\Images\Filter.png" />
+    <Resource Include="Resources\Assets\Images\First.png" />
+    <Resource Include="Resources\Assets\Images\Hide.png" />
+    <Resource Include="Resources\Assets\Images\Home.png" />
+    <Resource Include="Resources\Assets\Images\Note.png" />
+    <Resource Include="Resources\Assets\Images\progressbar.gif" />
+    <Resource Include="Resources\Assets\Images\Last.png" />
+    <Resource Include="Resources\Assets\Images\Left.png" />
+    <Resource Include="Resources\Assets\Images\Next.png" />
+    <Resource Include="Resources\Assets\Images\No.png" />
+    <Resource Include="Resources\Assets\Images\no_cover.png" />
+    <Resource Include="Resources\Assets\Images\Ok.png" />
+    <Resource Include="Resources\Assets\Images\Options.png" />
+    <Resource Include="Resources\Assets\Images\Passwords.png" />
+    <Resource Include="Resources\Assets\Images\Permissions.png" />
+    <Resource Include="Resources\Assets\Images\Previous.png" />
+    <Resource Include="Resources\Assets\Images\Refresh.png" />
+    <Resource Include="Resources\Assets\Images\Remove.png" />
+    <Resource Include="Resources\Assets\Images\Repository.png" />
+    <Resource Include="Resources\Assets\Icons\ResourceManager.ico" />
+    <Resource Include="Resources\Assets\Images\ResourceManager.png" />
+    <Resource Include="Resources\Assets\Images\Right.png" />
+    <Resource Include="Resources\Assets\Images\Roles.png" />
+    <Resource Include="Resources\Assets\Images\Save.png" />
+    <Resource Include="Resources\Assets\Images\Show.png" />
+    <Resource Include="Resources\Assets\Images\Submit.png" />
+    <Resource Include="Resources\Assets\Images\Tag.png" />
+    <Resource Include="Resources\Assets\Images\Tools.png" />
+    <Resource Include="Resources\Assets\Images\UserLogin.png" />
+    <Resource Include="Resources\Assets\Images\Users.png" />
+    <Resource Include="Resources\Assets\Images\Yes.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="sqlite3.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Assets\Images\Open.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Activities\ActivityPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Articles\ArticlePopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Books\EbookPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Notes\NotePopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TagsPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Repositories\RepositoryPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Users\PermissionPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Users\RolePopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Users\RolePermissionsPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Passwords\PasswordPopupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

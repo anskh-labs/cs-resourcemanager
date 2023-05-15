@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ResourceManager.Views.DatabaseContentView"
+             x:Name="uc_root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:com="clr-namespace:NetCore.Controls;assembly=NetCore.Controls" 
+             mc:Ignorable="d" 
+             d:DataContext="{Binding Source={StaticResource ViewModelLocator},Path=DatabaseContentViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Foreground="{Binding PageColor}" Header="Backup/Restore" FontSize="16">
+          <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Left">
+                <WrapPanel Margin="0 10 0 15">
+                    <RadioButton Content="Backup" GroupName="ActionOptions" IsChecked="{Binding IsBackup, Mode=TwoWay}"/>
+                    <RadioButton Content="Restore" GroupName="ActionOptions" Margin="20 0 0 0"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="File Path" FontSize="16" Margin="0 4 0 0" />
+                    <com:InputTextBox Margin="10 4 0 0" IsReadOnly="True" Width="300" Text="{Binding FilePath}" />
+                    <com:ImageButton ImageSource="/Resources/Assets/Images/Open.png"
+                                 ImageLocation="Left" Padding="0" ImageHeight="24" ImageWidth="24"
+                                 Command="{Binding OpenCommand}" Margin="10 4 0 0"/>
+                </WrapPanel>
+                <com:ImageButton Content="Execute" ImageSource="/Resources/Assets/Images/Submit.png"
+                                 ImageLocation="Left" Margin="-190,20,0,0"
+                                 Command="{Binding ExecuteCommand}" Width="85"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
