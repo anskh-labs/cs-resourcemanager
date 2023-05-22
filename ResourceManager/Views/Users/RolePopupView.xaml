@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:control="clr-namespace:NetCore.Controls;assembly=NetCore.Controls"
              mc:Ignorable="d">
-    <Grid Background="White" Width="360" Height="Auto"
-          FocusManager.FocusedElement="{Binding ElementName=TxtRealname}">
+    <Grid Background="White" Width="360" Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />

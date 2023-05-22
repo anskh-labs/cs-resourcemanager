@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NetCore.Mvvm.Extensions;
+using NetCore.Mvvm.Helpers;
 using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace NetCore.Mvvm.Helpers
+namespace NetCore.Mvvm.Controls
 {
     /// <summary>
     /// A content control presenting a view for a given view model via binding.
@@ -17,7 +18,7 @@ namespace NetCore.Mvvm.Helpers
         /// </summary>
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(object), typeof(ViewModelPresenter),
-                new PropertyMetadata(default(object), OnViewModelChanged));
+                new PropertyMetadata(default, OnViewModelChanged));
 
         /// <summary>
         /// The view model for which this control should display the corresponding view.

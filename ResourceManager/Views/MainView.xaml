@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mvvm="clr-namespace:NetCore.Mvvm.Helpers;assembly=NetCore.Mvvm"
+        xmlns:ctrl="clr-namespace:NetCore.Mvvm.Controls;assembly=NetCore.Mvvm"
         mc:Ignorable="d"
         d:DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel}"
         d:Height="600" 
@@ -12,15 +12,5 @@
         Title="Resource Manager" 
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
-    <Grid>
-        <Grid Background="White">
-            <mvvm:ViewModelPresenter ViewModel="{Binding CurrentPage}" />
-        </Grid>
-        <Grid x:Name="Popup_Container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{Binding IsPopupVisible, Converter={StaticResource VisibilityConverter}}" >
-            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Opacity="0.6" />
-            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
-                <mvvm:ViewModelPresenter ViewModel="{Binding CurrentPopup}" />
-            </DockPanel>
-        </Grid>
-    </Grid>
+    <ctrl:ViewModelPresenter ViewModel="{Binding CurrentPage}" />
 </Window>

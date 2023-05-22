@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NetCore.Mvvm.Abstractions;
+using NetCore.Mvvm.Controls;
 using NetCore.Mvvm.Extensions;
 using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace NetCore.Mvvm.Helpers
 {
@@ -162,6 +164,15 @@ namespace NetCore.Mvvm.Helpers
                 }
 
                 window.Closed += OnClosedHandler;
+            }
+            if(viewModel is IPopupable)
+            {
+                if(view  is ContentControl viewControl)
+                {
+                    var control = new PopupControl();
+                    control.Content = viewControl.Content;
+                    viewControl.Content = control;
+                }
             }
         }
 

@@ -15,11 +15,11 @@ namespace ResourceManager.ViewModels
 
         public T? ShowPopup<T>(T popupViewModel) where T : PopupViewModel
         {
-            return popupManager.ShowPopup(mainVM, popupViewModel);
+            return popupManager.ShowPopup(popupViewModel, mainVM);
         }
         public PopupResult ShowPopupMessage(string message, string caption, PopupButton popupButton = PopupButton.OK, PopupImage popupImage = PopupImage.None)
         {
-            return popupManager.ShowPopupMessage(mainVM, message, caption, popupButton, popupImage);
+            return popupManager.ShowPopupMessage(message, caption, popupButton, popupImage, mainVM);
         }
     }
 }

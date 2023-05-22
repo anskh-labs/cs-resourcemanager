@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore.Cryptography", "Net
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore.DatabaseToolkit", "NetCore.DatabaseToolkit\NetCore.DatabaseToolkit.csproj", "{FE159116-3E4A-4A7A-B7DD-D0F76FD13EC9}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ResourceManager.Installer", "ResourceManager.Installer\ResourceManager.Installer.vdproj", "{B578E430-97D7-4EC4-A087-87844193FBF3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,8 +51,6 @@ Global
 		{FE159116-3E4A-4A7A-B7DD-D0F76FD13EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE159116-3E4A-4A7A-B7DD-D0F76FD13EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE159116-3E4A-4A7A-B7DD-D0F76FD13EC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B578E430-97D7-4EC4-A087-87844193FBF3}.Debug|Any CPU.ActiveCfg = Debug
-		{B578E430-97D7-4EC4-A087-87844193FBF3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

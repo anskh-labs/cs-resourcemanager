@@ -64,9 +64,17 @@ namespace NetCore.Mvvm.ViewModels
         protected virtual bool SetProperty<TProperty>(TProperty value, [CallerMemberName] string? propertyName = null)
         {
             if (EqualityComparer<TProperty>.Default.Equals(GetProperty<TProperty>(propertyName), value)) return false;
-            _properties[propertyName] = value;
-            OnPropertyChanged(propertyName);
-            return true;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                _properties[propertyName] = value;
+                OnPropertyChanged(propertyName);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -89,9 +97,12 @@ namespace NetCore.Mvvm.ViewModels
         /// <returns></returns>
         protected virtual TProperty GetProperty<TProperty>([CallerMemberName] string? propertyName = null)
         {
-            object value = null;
-            if (_properties.TryGetValue(propertyName, out value))
-                return value == null ? default(TProperty) : (TProperty)value;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                object? value = null;
+                if (_properties.TryGetValue(propertyName, out value))
+                    return value == null ? default(TProperty) : (TProperty)value;
+            }
             return default(TProperty);
         }
 
@@ -101,7 +112,7 @@ namespace NetCore.Mvvm.ViewModels
         /// <typeparam name="TProperty"></typeparam>
         /// <param name="property"></param>
         /// <returns></returns>
-        protected virtual TProperty GetProperty<TProperty>(Expression<Func<TProperty>> property)
+        protected virtual TProperty? GetProperty<TProperty>(Expression<Func<TProperty>> property)
         {
             return GetProperty<TProperty>(ExpressionHelper.GetMemberName(property));
         }

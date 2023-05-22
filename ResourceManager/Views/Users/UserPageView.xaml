@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:com="clr-namespace:NetCore.Controls;assembly=NetCore.Controls"
-             xmlns:mvvm="clr-namespace:NetCore.Mvvm.Helpers;assembly=NetCore.Mvvm"
+             xmlns:ctrl="clr-namespace:NetCore.Mvvm.Controls;assembly=NetCore.Mvvm"
              mc:Ignorable="d" 
              d:DataContext="{Binding Source={StaticResource ViewModelLocator},Path=UserPageViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -48,7 +48,7 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
-            <mvvm:ViewModelPresenter ViewModel="{Binding SelectedItem}" Grid.Column="1" Margin="20,0,0,0" />
+            <ctrl:ViewModelPresenter ViewModel="{Binding SelectedItem}" Grid.Column="1" Margin="20,0,0,0" />
         </Grid>
     </Grid>
 </UserControl>
