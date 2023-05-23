@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NetCore.Mvvm.Abstractions;
 using NetCore.Mvvm.Extensions;
+using NetCore.Mvvm.ViewModels;
 using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace NetCore.Mvvm.Helpers
@@ -17,7 +19,7 @@ namespace NetCore.Mvvm.Helpers
             _viewLocator = viewLocator;
         }
 
-        public Window ShowWindow<TViewModel>(Window? owningWindow = null, IServiceScope? scope = null)
+        public Window ShowWindow<TViewModel>(Window? owningWindow = null, IServiceScope? scope = null) where TViewModel : class
         {
             var serviceProvider = scope?.ServiceProvider
                                   ?? (owningWindow != null ? ServiceProviderPropertyExtension.GetServiceProvider(owningWindow) : null)
@@ -41,7 +43,7 @@ namespace NetCore.Mvvm.Helpers
             return window;
         }
 
-        public (bool?, TViewModel) ShowDialog<TViewModel>(Window? owningWindow = null, IServiceScope? scope = null)
+        public (bool?, TViewModel) ShowDialog<TViewModel>(Window? owningWindow = null, IServiceScope? scope = null) where TViewModel: class
         {
             var serviceProvider = scope?.ServiceProvider
                                   ?? (owningWindow != null ? ServiceProviderPropertyExtension.GetServiceProvider(owningWindow) : null)

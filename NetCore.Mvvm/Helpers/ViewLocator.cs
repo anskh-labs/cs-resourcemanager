@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using NetCore.Mvvm.Abstractions;
 using NetCore.Mvvm.Controls;
 using NetCore.Mvvm.Extensions;
+using NetCore.Mvvm.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Reflection;
@@ -52,7 +53,7 @@ namespace NetCore.Mvvm.Helpers
         /// This allows the user of the library to remove the code-behind of her/his XAML files.
         /// </para>
         /// </remarks>
-        public object GetViewForViewModel<TViewModel>(IServiceProvider? serviceProvider = null)
+        public object GetViewForViewModel<TViewModel>(IServiceProvider? serviceProvider = null) where TViewModel : class
         {
             var viewModel = (serviceProvider ?? _serviceProvider).GetRequiredService<TViewModel>();
             return GetViewForViewModel(viewModel!, serviceProvider);

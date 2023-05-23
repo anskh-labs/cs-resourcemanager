@@ -11,7 +11,8 @@ using System.Windows.Threading;
 
 namespace NetCore.Mvvm.ViewModels
 {
-    public abstract class HasPopupViewModel : PropertyChangedBase, IPopupable
+
+    public abstract class HasPopupValidationViewModel : ValidationPropertyChangedBase, IPopupable
     {
         public PopupViewModel? CurrentPopup 
         { 
@@ -42,7 +43,8 @@ namespace NetCore.Mvvm.ViewModels
             while (IsPopupVisible)
             {
                 if (Dispatcher.CurrentDispatcher.HasShutdownStarted || Dispatcher.CurrentDispatcher.HasShutdownFinished) break;
-                Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Background, new ThreadStart(delegate { Thread.Sleep(20); }));
+                Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Background, new ThreadStart(delegate { }));
+                Thread.Sleep(20);
             }
 
             return popupViewModel;

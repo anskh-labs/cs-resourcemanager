@@ -19,7 +19,7 @@ namespace ResourceManager.ViewModels
         }
         public PopupResult ShowPopupMessage(string message, string caption, PopupButton popupButton = PopupButton.OK, PopupImage popupImage = PopupImage.None)
         {
-            return popupManager.ShowPopupMessage(message, caption, popupButton, popupImage, mainVM);
+            return popupManager.ShowPopupMessage(message, caption, mainVM, popupButton, popupImage);
         }
     }
 }
