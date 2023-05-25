@@ -17,7 +17,7 @@ namespace ResourceManager.Services
         {
             using (ResourceManagerDBContext db = dbFactory.CreateDbContext(null!))
             {
-                IList<Note> entities = await db.Notes.Include(x => x.NoteTags).ThenInclude(x => x.Tag).OrderBy(x => x.Date).ToListAsync();
+                IList<Note> entities = await db.Notes.Include(x => x.NoteTags).ThenInclude(x => x.Tag).OrderByDescending(x => x.Date).ToListAsync();
                 return entities;
             }
         }
